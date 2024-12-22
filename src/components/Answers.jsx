@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-const Answers = ({ answers, selectedAnswer, answersState, handleSelectAnswer }) => {
+const Answers = ({ answers, selectedAnswer, answersState, onSelect }) => {
 
     const shuffledAnswers = useRef();
 
@@ -24,7 +24,7 @@ const Answers = ({ answers, selectedAnswer, answersState, handleSelectAnswer }) 
                         cssClasses = answersState;
                     }
                     return <li key={answer} className='answer'>
-                        <button onClick={() => handleSelectAnswer(answer)} className={cssClasses}>
+                        <button onClick={() => onSelect(answer)} className={cssClasses} disabled={answersState !== ''}>
                             {answer}
                         </button>
                     </li>
